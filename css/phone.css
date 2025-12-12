@@ -1,0 +1,475 @@
+:root {
+    --primary-color: #e6a0f4; /* Purple from the navbar */
+    --secondary-color: #e0e0e0;
+    --text-color: #ffffff;
+    --dark-text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5; /* Light grey background */
+}
+
+/* --- Navigation Bar (Header) --- */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    flex-basis: 150px;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 500px;
+    background-color: var(--dark-text-color);
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+    
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    
+    
+}
+
+.nav-icons a {
+    color: var(--dark-text-color);
+    font-size: 30px;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.register-btn {
+    background-color: #4CAF50; /* Green */
+    color: var(--dark-text-color);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+/* Second row of navigation links */
+.main-nav {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 5px;
+    margin-left: 300px;
+}
+
+.main-nav a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+    margin-right: 25px;
+    padding: 5px 0;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- Vivo Products Section Styling --- */
+
+.vivo-products-section {
+    padding: 40px 60px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.vivo-products-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.vivo-products-grid {
+    display: grid;
+    /* 4 columns as seen in the image */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    max-width: 1400px; /* Adjust max width as needed */
+    margin: 0 auto;
+}
+
+.vivo-product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fcfcfc;
+    transition: box-shadow 0.3s;
+}
+
+.vivo-product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Container - Key to the circular background effect */
+.product-image-container {
+    width: 100%;
+    height: 180px; /* Set a fixed height */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Ensures image and dots stay inside */
+}
+
+/* Circular Clip/Mask for the Image */
+.product-image-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    background-color: #fff; /* White circle background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.product-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* Bring the image forward to overlap the circular background slightly */
+    z-index: 2; 
+}
+
+.product-model {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.product-rating {
+    color: gold;
+    font-size: 14px;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000; /* Price color is black */
+}
+
+/* Color Options Dots */
+.color-options {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    gap: 3px;
+    z-index: 3;
+}
+
+.color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+/* Define Color Classes */
+.color-dot.brown { background-color: #6a443a; }
+.color-dot.teal { background-color: #008080; }
+.color-dot.blue { background-color: #0000ff; }
+.color-dot.light-blue { background-color: #87cefa; }
+.color-dot.black { background-color: #000000; }
+.color-dot.white { background-color: #ffffff; }
+.color-dot.pink { background-color: #ff69b4; }
+.color-dot.purple { background-color: #800080; }
+.color-dot.dark-blue { background-color: #00008b; }
+
+/* Add To Cart Button */
+.add-to-cart-btn {
+    background-color: #f7b731; /* Yellow/Orange color */
+    color: #000;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 80%;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #f0a300;
+}
+/* --- Footer Styling --- */
+.footer-section {
+    background-color: #e0f090; /* Light green/yellow color */
+    color: var(--dark-text-color);
+    padding: 40px 40px 10px 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    flex-basis: 200px;
+}
+
+.logo-placeholder {
+    /* Placeholder for the blue/purple logo image */
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    -webkit-mask: url('path-to-your-logo-mask.svg') no-repeat 50% 50%; /* For the specific shape */
+    mask: url('path-to-your-logo-mask.svg') no-repeat 50% 50%; 
+    margin-bottom: 5px;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-col {
+    min-width: 120px;
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-col a, 
+.footer-col p {
+    display: block;
+    text-decoration: none;
+    color: var(--dark-text-color);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.contact-col p i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0 5px;
+}
+
+.social-links-footer a {
+    color: var(--dark-text-color);
+    font-size: 20px;
+    margin-left: 15px;
+    opacity: 0.7;
+}
+
+.social-links-footer a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+/* ----------------------------------------------------
+   PRODUCT SECTION TITLE
+---------------------------------------------------- */
+.oppo-products-section h2,
+.realme-products-section h2,
+.vivo-products-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* ----------------------------------------------------
+   GRID LAYOUT
+---------------------------------------------------- */
+.oppo-products-grid,
+.realme-products-grid,
+.vivo-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 10px;
+}
+
+/* ----------------------------------------------------
+   PRODUCT CARD
+---------------------------------------------------- */
+.oppo-product-card,
+.realme-product-card,
+.vivo-product-card {
+    background: #f3f3f3;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    transition: 0.3s ease-in-out;
+}
+
+.oppo-product-card:hover,
+.realme-product-card:hover,
+.vivo-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+}
+
+/* ----------------------------------------------------
+   PRODUCT IMAGE
+---------------------------------------------------- */
+.product-image-container {
+    position: relative;
+}
+
+.product-img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 10px;
+}
+
+/* ----------------------------------------------------
+   COLOR DOTS
+---------------------------------------------------- */
+.color-options {
+    margin-top: 10px;
+}
+
+.color-dot {
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 4px;
+    border: 2px solid #ddd;
+}
+
+.color-dot.black { background: #000; }
+.color-dot.white { background: #fff; }
+.color-dot.blue { background: #007bff; }
+.color-dot.light-blue { background: #77c8ff; }
+.color-dot.dark-blue { background: #003c8f; }
+.color-dot.teal { background: #009688; }
+.color-dot.brown { background: #8d5a3a; }
+.color-dot.pink { background: #ff77b7; }
+.color-dot.purple { background: #7e57c2; }
+
+/* ----------------------------------------------------
+   PRODUCT TEXT
+---------------------------------------------------- */
+.product-model {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 10px 0 5px;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding: 0 10px;
+}
+
+.product-rating {
+    color: #f5c518;
+    font-size: 16px;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007b00;
+}
+
+/* ----------------------------------------------------
+   ADD TO CART BUTTON
+---------------------------------------------------- */
+.add-to-cart-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #ffd500;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background: #ffbf00;
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE FIX
+---------------------------------------------------- */
+@media (max-width: 600px) {
+    .product-img {
+        height: 140px;
+    }
+
+    .product-model {
+        font-size: 16px;
+    }
+}

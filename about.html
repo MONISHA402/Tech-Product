@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+    --primary-color: #e6a0f4; /* Purple from the navbar */
+    --secondary-color: #e0e0e0;
+    --text-color: #ffffff;
+    --dark-text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5; /* Light grey background */
+}
+
+/* --- Navigation Bar (Header) --- */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    flex-basis: 150px;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 500px;
+    background-color: var(--dark-text-color);
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+    
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    
+    
+}
+
+.nav-icons a {
+    color: var(--dark-text-color);
+    font-size: 30px;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.register-btn {
+    background-color: #4CAF50; /* Green */
+    color: var(--dark-text-color);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+/* Second row of navigation links */
+.main-nav {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 5px;
+    margin-left: 300px;
+}
+
+.main-nav a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+    margin-right: 25px;
+    padding: 5px 0;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+ /* --- Testimonials Section Styling --- */
+
+.testimonials-section {
+    padding: 60px 40px;
+    background-color: #f5f5f5; /* Light background for separation */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between testimonial cards */
+}
+
+.testimonial-card {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative; /* Needed for z-index control */
+}
+
+/* Background Color Classes for Cards */
+.purple-bg-card {
+    background-color: #f0c0f0; /* Lighter purple background for the card */
+}
+
+.orange-bg-card {
+    background-color: #f5d0b0; /* Lighter orange background for the card */
+}
+
+.green-bg-card {
+    background-color: #e0f0b0; /* Lighter green/yellow background for the card */
+}
+
+/* Image Wrapper and Image */
+.testimonial-image-wrap {
+    /* Fixed width/size for the image area */
+    flex-basis: 250px; 
+    flex-shrink: 0;
+    height: 180px; /* Adjust height as needed */
+    position: relative;
+    z-index: 2; /* Ensures image overlaps the text box */
+    
+    /* Offset the image wrap to the left */
+    transform: translateX(-20px); 
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the space */
+    border-radius: 5px; /* Subtle rounding on the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Content Wrapper */
+.testimonial-content-wrap {
+    flex-grow: 1;
+    padding: 20px 30px 20px 50px; /* Padding, extra space on the left to account for image offset */
+    border-radius: 10px;
+    color: var(--dark-text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.testimonial-content-wrap h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.testimonial-content-wrap p {
+    font-size: 16px;
+    line-height: 1.5;
+    /* Adding quotes visually */
+    font-style: italic;
+}
+/* --- Footer Styling --- */
+.footer-section {
+    background-color: #e0f090; /* Light green/yellow color */
+    color: var(--dark-text-color);
+    padding: 40px 40px 10px 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    flex-basis: 200px;
+}
+
+.logo-placeholder {
+    /* Placeholder for the blue/purple logo image */
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    -webkit-mask: url('path-to-your-logo-mask.svg') no-repeat 50% 50%; /* For the specific shape */
+    mask: url('path-to-your-logo-mask.svg') no-repeat 50% 50%; 
+    margin-bottom: 5px;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-col {
+    min-width: 120px;
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-col a, 
+.footer-col p {
+    display: block;
+    text-decoration: none;
+    color: var(--dark-text-color);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.contact-col p i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0 5px;
+}
+
+.social-links-footer a {
+    color: var(--dark-text-color);
+    font-size: 20px;
+    margin-left: 15px;
+    opacity: 0.7;
+}
+
+.social-links-footer a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+    </style>
+</head>
+<body>
+     <header class="navbar">
+        <div>
+            
+            <img src="images/logo.png" alt="logo">
+            <div class="logo">Tech Company</div>
+        </div>
+        
+        <div class="search-bar-container">
+            <input type="text" class="search-input" placeholder="Search For">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+       
+        
+
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-bell"></i></a>
+        </div>
+
+        <button class="register-btn" id="openRegisterDialog">Register</button>
+
+        <nav class="main-nav">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Product</a>
+            <a href="service.html">Service</a>
+            <a href="contact.html">Contact</a>
+            <a href="help.html">Blogs</a>
+        </nav>
+        
+        
+    </header>
+
+    <section class="testimonials-section">
+        <div class="testimonial-card purple-bg-card">
+            <div class="testimonial-image-wrap">
+                <img src="images/Rectangle 287.png" alt="Amanda Faulkner" class="testimonial-image">
+            </div>
+            <div class="testimonial-content-wrap">
+                <h3>Amanda Faulkner (New Zealand)</h3>
+                <p>
+                    “My Apple watch kept sending alerts that my resting heart rate was very higher than normal... I eventually decided to see my GP. That decision probably saved my life — it led to a diagnosis of acute myeloid leukemia”
+                </p>
+            </div>
+        </div>
+
+        <div class="testimonial-card orange-bg-card">
+            <div class="testimonial-image-wrap">
+                <img src="images/Rectangle 261.png" alt="Sneha Saha" class="testimonial-image">
+            </div>
+            <div class="testimonial-content-wrap">
+                <h3>Sneha Saha (Delhi, India)</h3>
+                <p>
+                    “If the Apple Watch had not alerted me of the serious condition around midnight, I would have lost my life. Her atrial fibrillation heart rate exceeding 230bpm — was detected during a potentially fatal episode prompting emergency care”
+                </p>
+            </div>
+        </div>
+
+        <div class="testimonial-card green-bg-card">
+            <div class="testimonial-image-wrap">
+                <img src="images/Rectangle 262.png" alt="Frank Haggerty" class="testimonial-image">
+            </div>
+            <div class="testimonial-content-wrap">
+                <h3>Frank Haggerty (New Jersey, USA)</h3>
+                <p>
+                    “Quite frankly, had I not had the watch on, I wouldn't be sitting here today. It's my best friend. ... His Apple Watch detected a resting heart rate of just 30bpm, leading to a pacemaker implant for complete heart block”
+                </p>
+            </div>
+        </div>
+    </section>
+<footer class="footer-section">
+        <div class="footer-top">
+            <div class="footer-logo">
+                
+                    <img src="images/footer logo.png" alt="logo">
+                
+                <div class="logo-text">Tech Company</div>
+            </div>
+            
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Testimonial</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Mediabox</a>
+                    <a href="#">Feedback</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="#">Course</a>
+                    <a href="#">Service</a>
+                    <a href="#">Ads and...</a>
+                </div>
+                <div class="footer-col contact-col">
+                    <h4>Contact US</h4>
+                    <p><i class="fas fa-phone-alt"></i> +0177700790234</p>
+                    <p><i class="fas fa-envelope"></i> razer2006@gmail</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Google</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="social-links-footer">
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+  
